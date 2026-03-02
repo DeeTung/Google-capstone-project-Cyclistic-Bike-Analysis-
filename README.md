@@ -34,3 +34,13 @@ Since this case study is part of the Google Data Analytics Professional Certific
 * Act
 
 These steps will form the basis for my analysis on the Cyclistic dataset.
+
+## Tools Used
+
+* **Language:** R
+* **Libraries:** `here`, `yaml`, `dplyr`, `tidyr`, `tidyverse`, `ggplot2`, `showtext`, `scales`, `tidytext`
+* **IDE & Development**: RStudio
+* **Version Control**: Git, GitHub
+* **Large File Storage**: Google Drive
+* **Documentation & Presentation**: Google Docs, Google Slides
+* **Visualization:** Custom-styled `ggplot2` plots exported to PNG
