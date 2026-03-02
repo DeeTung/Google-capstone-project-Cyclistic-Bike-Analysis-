@@ -1,0 +1,4 @@
+# Ignore raw data files
+*.zip
+*.csv
+dataset/
