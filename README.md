@@ -17,3 +17,20 @@ Additionally, this case study aligns with real-world business decision-making, m
 * Understand customer usage patterns (Casual vs. Annual Members).
 * Identify trends in ride duration, peak usage times, and station preferences.
 * Recommend strategies to increase annual memberships.
+
+## Key Objectives
+* Understand customer usage patterns (Casual vs. Annual Members).
+* Identify trends in ride duration, peak usage times, and station preferences.
+* Recommend strategies to increase annual memberships.
+
+## Approach
+Since this case study is part of the Google Data Analytics Professional Certification Capstone Project, I will follow the data analysis process as outlined by Google:
+
+* Ask
+* Prepare
+* Process
+* Analyze
+* Share
+* Act
+
+These steps will form the basis for my analysis on the Cyclistic dataset.
