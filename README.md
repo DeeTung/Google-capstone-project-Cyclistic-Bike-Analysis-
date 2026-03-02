@@ -58,7 +58,58 @@ The primary objective is to analyze Cyclistic's historical trip data to identify
 * **Cyclistic Executive Team**: The detail-oriented team that will decide whether to approve the recommended marketing program.
 
 ## Guiding Questions
+
 * **Metrics**: Which specific metrics (e.g., average ride_length, frequency by day_of_week, or peak usage hours) will most effectively highlight the behavioral gaps between the two user types?
 * How do annual members and casual riders use Cyclistic bikes differently?  
 * Why would casual riders buy Cyclistic annual memberships?  
 * How can Cyclistic use digital media to influence casual riders to become members?  
+
+# Phase 2: Prepare
+
+## Data Storage and Organization
+
+### Where is your data located? 
+
+The data is stored locally in organized folders, with subdirectories for the original 12 months of raw CSV files and a separate folder for processed data. 
+
+### How is the data organized? 
+
+The data is organized by month, with each CSV file containing trip details such as ride ID, bike type, start/end times, station names, and member type (casual vs. annual). 
+
+## Data Credibility and Integrity (ROCCC)
+
+### Are there issues with bias or credibility in this data? Does your data ROCCC? 
+
+**Reliable:** The data is reliable as it contains a large volume of actual trip records from a functional bike-share system. 
+
+**Original:** The data is primary-source data provided by Motivate International Inc., which operates the City of Chicago’s Divvy bicycle-sharing service. 
+
+**Comprehensive:** It includes all necessary variables (time, duration, station, user type) to answer how usage differs between members and casual riders. 
+
+**Current:** The analysis uses the most recent 12 months of historical trip data, ensuring the findings reflect current trends. 
+
+**Cited:** The data is officially licensed and made public under a specific data license agreement. 
+
+### How did you verify the data’s integrity? 
+
+Data integrity was verified by checking for consistent column names across all 12 files, ensuring data types matched, and identifying any outliers or null values in critical fields like started_at and ended_at. 
+
+## Licensing, Privacy, and Security
+
+### How are you addressing licensing, privacy, security, and accessibility? 
+
+**Licensing:** The data is used according to the license provided by Motivate International Inc. 
+
+**Privacy:** To ensure rider privacy, all personally identifiable information (PII) such as credit card numbers or home addresses has been excluded from the dataset. 
+
+**Security:** Raw data is kept as read-only to prevent accidental modification, and all cleaning steps are documented for transparency. 
+
+## Analysis Readiness
+
+### How does it help you answer your question? 
+
+The data allows for granular comparison of ride frequency, trip duration, and peak usage times between annual members and casual riders. 
+
+### Are there any problems with the data? 
+
+Common issues include missing station names for some entries and occasional records where the ride length is zero or negative (due to maintenance or system errors), which must be removed during the cleaning phase.
