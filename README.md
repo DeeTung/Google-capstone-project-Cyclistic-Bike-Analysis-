@@ -44,3 +44,21 @@ These steps will form the basis for my analysis on the Cyclistic dataset.
 * **Large File Storage**: Google Drive
 * **Documentation & Presentation**: Google Docs, Google Slides
 * **Visualization:** Custom-styled `ggplot2` plots exported to PNG
+
+# Phase 1: Ask
+
+## Business Task
+
+The primary objective is to analyze Cyclistic's historical trip data to identify how annual members and casual riders use the bike-share service differently. These insights will serve as the foundation for designing a targeted marketing strategy aimed at converting casual riders into annual members to ensure the company's future growth and profitability.
+
+## Key Stakeholders
+
+* **Lily Moreno**: Director of Marketing and my manager, responsible for developing campaigns to promote the bike-share program.
+* **Cyclistic Marketing Analytics Team**: A team of data analysts responsible for collecting, analyzing, and reporting data to guide marketing strategy.
+* **Cyclistic Executive Team**: The detail-oriented team that will decide whether to approve the recommended marketing program.
+
+## Guiding Questions
+* **Metrics**: Which specific metrics (e.g., average ride_length, frequency by day_of_week, or peak usage hours) will most effectively highlight the behavioral gaps between the two user types?
+* How do annual members and casual riders use Cyclistic bikes differently?  
+* Why would casual riders buy Cyclistic annual memberships?  
+* How can Cyclistic use digital media to influence casual riders to become members?  
