@@ -2,7 +2,7 @@
 The **Cyclistic Case Study** is a capstone project from the **Google Data Analytics Professional Certificate** on Coursera. It presents a real-world scenario where data analysts examine how different customer segments use Cyclistic’s bike-sharing services.
 
 Cyclistic is a fictional bike-share company based in Chicago, and the dataset used for this case study is provided by **Motivate International Inc.** under a public license. The goal of this analysis is to uncover usage patterns, compare customer behaviors, and provide data-driven recommendations to convert casual riders into annual members.
-
+  
 ## Why Choose This Case Study?
 This project offers a practical application of data analytics skills in a business context and allows hands-on experience with:
 
