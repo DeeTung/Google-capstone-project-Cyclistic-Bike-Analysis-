@@ -66,6 +66,12 @@ The primary objective is to analyze Cyclistic's historical trip data to identify
 
 # Phase 2: Prepare
 
+### Data Source
+
+The data used in this analysis is public data provided by Motivate International Inc. 
+You can download the historical trip data from this link: 
+[Cyclistic Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
+
 ## Data Storage and Organization
 
 ### Where is your data located? 
