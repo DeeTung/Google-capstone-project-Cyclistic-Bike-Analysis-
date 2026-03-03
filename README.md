@@ -120,4 +120,53 @@ The data allows for granular comparison of ride frequency, trip duration, and pe
 
 Common issues include missing station names for some entries and occasional records where the ride length is zero or negative (due to maintenance or system errors), which must be removed during the cleaning phase.
 
+# Phase 3: Process - Data Cleaning & Transformation Documentation
 
+## Data Transformation Steps
+
+To prepare the data for analysis, the following transformations were performed using R:
+
+### Data Merging:
+
+Merged 12 individual CSV files covering the period from January 2025 to December 2025 into a single integrated dataframe called all_trips.
+
+### New Features:
+
+* Created a ride_length column by calculating the difference between ended_at and started_at. The result was formatted as numeric (seconds) for precise statistical calculations.
+
+* Created a day_of_week column using the wday() function, where 1 represents Sunday and 7 represents Saturday.
+
+### Data Type Conversion:
+
+Ensured that started_at and ended_at columns were converted to datetime format (POSIXct) to enable chronological analysis.
+
+## Data Cleaning Records
+
+A cleaned dataset named all_trips_v2 was created to ensure the integrity of the findings:
+
+### Filtering Records:
+
+Removed all entries where ride_length was less than or equal to 0 seconds (representing system errors or maintenance trips).
+
+### Handling Missing Values:
+
+Verified and addressed null values in critical geographical and station-related fields.
+
+## Cleaned Dataset Overview:
+
+### Total Records: 5,552,063 valid trips.
+
+### Ride Length Statistics:
+
+* Minimum: 0.046 seconds.
+
+* Maximum: 944,494 seconds (approximately 262 hours).
+
+* Mean: 965.8 seconds (approximately 16 minutes).
+
+### Temporal Range:
+The primary analysis focuses on trips starting from January 31, 2025, through the end of December 2025.
+
+### Integrity Check:
+
+Confirmed that the member_casual column contains only "member" and "casual" categories and that day_of_week values fall strictly within the 1-7 range.
