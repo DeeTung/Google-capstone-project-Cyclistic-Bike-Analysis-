@@ -69,7 +69,7 @@ The primary objective is to analyze Cyclistic's historical trip data to identify
 ### Data Source
 
 The data used in this analysis is public data provided by Motivate International Inc. 
-You can download the historical trip data from this link: 
+You can download the historical trip data from this link (01/2025 - 12/2025): 
 [Cyclistic Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
 
 ## Data Storage and Organization
@@ -119,3 +119,5 @@ The data allows for granular comparison of ride frequency, trip duration, and pe
 ### Are there any problems with the data? 
 
 Common issues include missing station names for some entries and occasional records where the ride length is zero or negative (due to maintenance or system errors), which must be removed during the cleaning phase.
+
+
