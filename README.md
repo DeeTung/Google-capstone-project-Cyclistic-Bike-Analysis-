@@ -49,7 +49,7 @@ These steps will form the basis for my analysis on the Cyclistic dataset.
 
 ## Business Task
 
-The primary objective is to analyze Cyclistic's historical trip data to identify how annual members and casual riders use the bike-share service differently. These insights will serve as the foundation for designing a targeted marketing strategy aimed at converting casual riders into annual members to ensure the company's future growth and profitability.
+Analyze Cyclistic's historical trip data to understand the behavioral differences between annual members and casual riders. The goal is to identify high-value conversion opportunities by examining usage patterns related to time, duration, and geographical distribution. These insights will guide the development of a marketing strategy to maximize annual memberships.
 
 ## Key Stakeholders
 
@@ -59,10 +59,15 @@ The primary objective is to analyze Cyclistic's historical trip data to identify
 
 ## Guiding Questions
 
-* **Metrics**: Which specific metrics (e.g., average ride_length, frequency by day_of_week, or peak usage hours) will most effectively highlight the behavioral gaps between the two user types?
-* How do annual members and casual riders use Cyclistic bikes differently?  
-* Why would casual riders buy Cyclistic annual memberships?  
-* How can Cyclistic use digital media to influence casual riders to become members?  
+* **Spatial Patterns**: How do the starting and ending locations differ between members and casual riders? Are casual riders more concentrated in tourist areas or parks compared to members?
+
+* **Travel Efficiency**: Does the average ride distance (ride_distance) correlate with the user type? Do members take more direct, shorter-distance trips (suggesting commuting) while casual riders take longer, wandering routes?
+
+* **Peak Hour Geospatial Trends**: During peak hours (e.g., 5 PM), where is the highest density of casual riders located? Can we target these specific "hotspot" stations for digital conversion ads?
+
+* **Weather & Seasonal Impact on Distance**: How does the average travel distance change across different months for each user group?
+
+* **Conversion Incentives**: Based on the average distance and duration, would a "Long-Distance Weekend Pass" or "Commuter-Only Membership" be more effective in converting the identified casual rider segments?
 
 # Phase 2: Prepare
 
@@ -120,53 +125,57 @@ The data allows for granular comparison of ride frequency, trip duration, and pe
 
 Common issues include missing station names for some entries and occasional records where the ride length is zero or negative (due to maintenance or system errors), which must be removed during the cleaning phase.
 
-# Phase 3: Process - Data Cleaning & Transformation Documentation
+# Phase 3: Process 
 
-## Data Transformation Steps
+## 1. Data Merging and Initial Inspection
 
-To prepare the data for analysis, the following transformations were performed using R:
+**Merging:**  
+Merged 12 individual CSV files (covering January 2025 to December 2025) into a single integrated dataframe called `trips` using the `bind_rows()` function.
 
-### Data Merging:
+**Missing Value Analysis:**  
+Performed a thorough check for null values using `colSums(is.na(trips))`. Significant missing data was identified in station-related columns (`start_station_name`, `start_station_id`, `end_station_name`, `end_station_id`) and geographical coordinates.
 
-Merged 12 individual CSV files covering the period from January 2025 to December 2025 into a single integrated dataframe called all_trips.
+**Integrity Enforcement:**  
+Applied `drop_na()` to remove rows with missing values, ensuring the analysis of station popularity and trip distance remains accurate.
 
-### New Features:
+---
 
-* Created a ride_length column by calculating the difference between ended_at and started_at. The result was formatted as numeric (seconds) for precise statistical calculations.
+## 2. Detailed Data Transformation (Breakdown)
 
-* Created a day_of_week column using the wday() function, where 1 represents Sunday and 7 represents Saturday.
+To enable deep-dive analysis into user behavior, the following features were engineered using R:
 
-### Data Type Conversion:
+**Time Feature Extraction:**  
+Created specific columns for `month`, `year`, `day_of_week`, and `hour` derived from the `started_at` timestamp.
 
-Ensured that started_at and ended_at columns were converted to datetime format (POSIXct) to enable chronological analysis.
+**Ride Metrics Calculation:**
 
-## Data Cleaning Records
+- **ride_length:** Calculated the duration of each trip in minutes by finding the difference between `ended_at` and `started_at`.
+- **ride_distance:** Computed the geographical distance (in kilometers) between start and end coordinates using the `distGeo()` function from the `geosphere` library to analyze travel efficiency.
 
-A cleaned dataset named all_trips_v2 was created to ensure the integrity of the findings:
+**Categorical Ordering:**  
+Organized `day_of_week` (Monday–Sunday) and `month` (Jan–Dec) into ordered factors to ensure logical chronological display in visualizations.
 
-### Filtering Records:
+---
 
-Removed all entries where ride_length was less than or equal to 0 seconds (representing system errors or maintenance trips).
+## 3. Data Cleaning and Quality Assurance
 
-### Handling Missing Values:
+A final filtered dataset, `trips_v2`, was established to remove noise and system errors:
 
-Verified and addressed null values in critical geographical and station-related fields.
+**Removal of Outliers:**
 
-## Cleaned Dataset Overview:
+- Excluded trips with a duration of less than 1 minute, which often represent false starts or docking errors.
+- Excluded trips exceeding 24 hours (1,440 minutes), as these likely indicate stolen bikes or system logging failures.
 
-### Total Records: 5,552,063 valid trips.
+**Renaming for Clarity:**  
+Standardized column names, such as renaming column 2 to `bike` and column 13 to `user`, to enhance code readability.
 
-### Ride Length Statistics:
+---
 
-* Minimum: 0.046 seconds.
+## 4. Process Summary
 
-* Maximum: 944,494 seconds (approximately 262 hours).
+**Tool Used:** RStudio  
 
-* Mean: 965.8 seconds (approximately 16 minutes).
+**Total Cleaned Records:** 5,552,063 valid trips.  
 
-### Temporal Range:
-The primary analysis focuses on trips starting from January 31, 2025, through the end of December 2025.
-
-### Integrity Check:
-
-Confirmed that the member_casual column contains only "member" and "casual" categories and that day_of_week values fall strictly within the 1-7 range.
+**Outcome:**  
+The dataset is now clean, structurally consistent, and enriched with temporal and geospatial metrics, making it ready for the Analyze phase.
