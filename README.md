@@ -37,11 +37,10 @@ These steps will form the basis for my analysis on the Cyclistic dataset.
 
 ## Tools Used
 
-* **Language:** R
-* **Libraries:** `here`, `yaml`, `dplyr`, `tidyr`, `tidyverse`, `ggplot2`, `showtext`, `scales`, `tidytext`
-* **IDE & Development**: RStudio
+* **Language:** R, SQL
+* **IDE & Development**: RStudio, Google BigQuery
 * **Version Control**: Git, GitHub
-* **Large File Storage**: Google Drive
+* **Large File Storage**: Google Cloud Storage
 * **Documentation & Presentation**: Google Docs, Google Slides
 * **Visualization:** Custom-styled `ggplot2` plots exported to PNG
 
@@ -175,7 +174,18 @@ Standardized column names, such as renaming column 2 to `bike` and column 13 to 
 
 **Tool Used:** RStudio  
 
-**Total Cleaned Records:** 5,552,063 valid trips.  
+**Total Cleaned Records:** 3,657,044 valid trips.  
 
 **Outcome:**  
 The dataset is now clean, structurally consistent, and enriched with temporal and geospatial metrics, making it ready for the Analyze phase.
+
+
+## Phase 4: Analyze
+In this phase, I utilized **Google BigQuery** to perform SQL queries on the 3.6 million rows of cleaned data.
+
+### Key Findings:
+* **User Engagement**: Annual members account for **64.19%** of total rides, while casual riders make up **35.81%**.
+* **Ride Duration**: There is a significant gap in usage time. Casual riders average **22.48 minutes** per trip, nearly double the **12.49 minutes** averaged by members.
+* **Weekly Patterns**: Casual riders peak during the **weekends** (Saturday being the highest with ~272k rides), whereas members show consistent high activity during **weekdays**, peaking on Tuesday and Wednesday.
+* **Top Stations**: The most popular station for casual riders is **DuSable Lake Shore Dr & Monroe St**, suggesting a high concentration of leisure/tourist activity.
+* **Travel Distance**: Both groups travel similar distances (Casual: 2.21 km, Member: 2.18 km), indicating that the difference in duration is likely due to riding speed or leisure stops.
