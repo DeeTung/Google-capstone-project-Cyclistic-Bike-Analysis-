@@ -189,3 +189,53 @@ In this phase, I utilized **Google BigQuery** to perform SQL queries on the 3.6 
 * **Weekly Patterns**: Casual riders peak during the **weekends** (Saturday being the highest with ~272k rides), whereas members show consistent high activity during **weekdays**, peaking on Tuesday and Wednesday.
 * **Top Stations**: The most popular station for casual riders is **DuSable Lake Shore Dr & Monroe St**, suggesting a high concentration of leisure/tourist activity.
 * **Travel Distance**: Both groups travel similar distances (Casual: 2.21 km, Member: 2.18 km), indicating that the difference in duration is likely due to riding speed or leisure stops.
+
+# Phase 5: Share
+
+In this phase, I translated the analyzed data into visual stories using the ggplot2 library in R. These visualizations aim to answer the business question: "How do annual members and casual riders use Cyclistic bikes differently?"
+
+## 1. User Distribution
+
+This pie chart provides an overview of our customer base, showing the dominance of annual members in the total ridership.
+
+**Key Insight:** Annual members make up 64.2% of the total trips, while casual riders account for 35.8%. This indicates a solid base of loyal users but also a significant opportunity for conversion.
+
+## 2. Average Ride Duration
+
+Comparing how long each group stays on the bike helps distinguish between commuting and leisure use.
+
+**Key Insight:** Casual riders travel for much longer durations (~22.5 mins) compared to members (~12.5 mins). This strongly suggests that casual riders primarily use bikes for recreational purposes.
+
+## 3. Weekly Usage Patterns
+
+This chart reveals the "when" of bike usage throughout the week.
+
+**Key Insight:**
+
+* Members show a consistent, stable usage pattern from Monday to Friday, indicating a commuting routine.
+
+* Casual riders experience a significant "burst" in activity on Saturday and Sunday, confirming their leisure-oriented behavior.
+
+## 4. Hourly Trip Trends
+
+Analyzing peak hours allows us to identify the "prime time" for digital marketing or maintenance.
+
+**Key Insight:**
+
+* Members have distinct peaks at 8:00 AM and 5:00 PM (standard rush hours).
+
+* Casual riders show a steady increase starting from 10:00 AM, peaking in the late afternoon, with no significant morning rush.
+
+## 5. Seasonal/Monthly Trends
+
+Understanding seasonal fluctuations is crucial for planning yearly marketing budgets.
+
+**Key Insight:** Both groups are most active during the summer months (June, July, and August). However, casual ridership drops more drastically in winter compared to member ridership, indicating that members rely on the service regardless of the season.
+
+## Data Visualization Summary
+
+The visualizations clearly illustrate a tale of two users:
+
+**The Commuter (Member):** Stable, routine-based, uses the service for short trips during work hours.
+
+**The Explorer (Casual):** Seasonal, weekend-focused, takes longer rides at varied hours for sightseeing or exercise.
